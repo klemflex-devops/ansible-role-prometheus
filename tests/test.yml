@@ -1,7 +1,7 @@
 - name: Test prometheus role
   hosts: worker_1
   become: true
-  
+
   roles:
-    - role: ../
+    - role: ansible-role-prometheus
       
