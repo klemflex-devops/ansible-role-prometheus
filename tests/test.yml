@@ -1,6 +1,7 @@
-#SPDX-License-Identifier: MIT-0
----
-- hosts: all
-  remote_user: ubuntu
-  roles:
-    - prometheus
+- name: Test prometheus role
+  hosts: worker_1
+  become: true
+  tasks:
+    - name: Include role from parent dir
+      include_role:
+        name: ..
