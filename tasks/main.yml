@@ -25,30 +25,32 @@
     dest: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
     mode: '0755'
 
-- name: Copy files 
-  block:
-  - name: Unarchive a file
-    unarchive:
-      src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
-      dest: /tmp/    
+- name: Unarchive a file
+  unarchive:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
+    dest: /tmp/
+    remote_src: yes    
 
-  - name: Copy binary prometheus
-    copy:
-      src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus
-      dest: /usr/local/bin/prometheus
+- name: Copy binary prometheus
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus
+    dest: /usr/local/bin/prometheus
+    remote_src: yes
 
-  - name: Copy binary promtool
-    copy:
-      src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/promtool
-      dest: /usr/local/bin/promtool
-      
-  - name: Copy lib console
-    copy:
-      src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/consoles
-      dest: /etc/prometheus/consoles
+- name: Copy binary promtool
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/promtool
+    dest: /usr/local/bin/promtool
+    remote_src: yes
+    
+- name: Copy lib console
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/consoles
+    dest: /etc/prometheus/consoles
+    remote_src: yes
 
-  - name: Copy lib console
-    copy:
-      src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/console_libraries
-      dest: /etc/prometheus/console_libraries
-  remote_src: yes
+- name: Copy lib console
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/console_libraries
+    dest: /etc/prometheus/console_libraries
+    remote_src: yes
