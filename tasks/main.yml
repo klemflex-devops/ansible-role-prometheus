@@ -34,7 +34,7 @@
 - name: Copy binary prometheus
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus
-    dst: /usr/local/bin/prometheus
+    dst: /usr/local/bin/
 
 - name: Copy binary promtool
   copy:
