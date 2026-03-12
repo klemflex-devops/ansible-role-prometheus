@@ -28,7 +28,7 @@
 - name: Unarchive a file
   unarchive:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
-    dest: /tmp/prometheus-{{ prometheus_version }}.linux-amd64
+    dest: /tmp/
     remote_src: yes
 
 - name: Copy binary prometheus
