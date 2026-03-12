@@ -49,19 +49,28 @@
     owner: prometheus
     group: prometheus
     
-- name: Copy lib console
-  copy:
-    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/consoles
-    dest: /etc/prometheus/consoles
-    mode: '0755'
-    remote_src: yes
-    owner: prometheus
-    group: prometheus
+# - name: Copy lib console
+#   copy:
+#     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/consoles
+#     dest: /etc/prometheus/consoles
+#     mode: '0755'
+#     remote_src: yes
+#     owner: prometheus
+#     group: prometheus
 
-- name: Copy lib console
+# - name: Copy lib console
+#   copy:
+#     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/console_libraries
+#     dest: /etc/prometheus/console_libraries
+#     mode: '0755'
+#     remote_src: yes
+#     owner: prometheus
+#     group: prometheus
+
+- name: Copy prometheus.yml
   copy:
-    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/console_libraries
-    dest: /etc/prometheus/console_libraries
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus.yml
+    dest: /etc/prometheus/prometheus.yml
     mode: '0755'
     remote_src: yes
     owner: prometheus
