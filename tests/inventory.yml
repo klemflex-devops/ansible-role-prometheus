@@ -1,0 +1,8 @@
+#SPDX-License-Identifier: MIT-0
+all:
+  children:
+    servers:
+      hosts:
+        worker_1:
+          ansible_host: 158.160.63.40
+
