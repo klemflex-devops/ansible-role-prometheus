@@ -34,19 +34,19 @@
 - name: Copy binary prometheus
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus
-    dst: /usr/local/bin/
+    dest: /usr/local/bin/prometheus
 
 - name: Copy binary promtool
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/promtool
-    dst: /usr/local/bin/promtool
+    dest: /usr/local/bin/promtool
     
 - name: Copy lib console
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/consoles
-    dst: /etc/prometheus/consoles
+    dest: /etc/prometheus/consoles
 
 - name: Copy lib console
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/console_libraries
-    dst: /etc/prometheus/console_libraries
+    dest: /etc/prometheus/console_libraries
