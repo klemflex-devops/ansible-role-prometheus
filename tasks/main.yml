@@ -35,22 +35,26 @@
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus
     dest: /usr/local/bin/prometheus
+    mode: '0755'
     remote_src: yes
 
 - name: Copy binary promtool
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/promtool
     dest: /usr/local/bin/promtool
+    mode: '0755'
     remote_src: yes
     
 - name: Copy lib console
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/consoles
     dest: /etc/prometheus/consoles
+    mode: '0755'
     remote_src: yes
 
 - name: Copy lib console
   copy:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/console_libraries
     dest: /etc/prometheus/console_libraries
+    mode: '0755'
     remote_src: yes
