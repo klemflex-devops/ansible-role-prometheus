@@ -75,3 +75,15 @@
     remote_src: yes
     owner: prometheus
     group: prometheus
+
+- name: Copy prometheus.service
+  copy:
+    src: templates/prometheus.service.j2
+    dest: /etc/systemd/system/prometheus.serivce
+    mode: '0644'
+
+- name: Start prometheus.service
+  systemd_service:
+    name: prometheus.service
+    state: started
+    daemon_reload: true
