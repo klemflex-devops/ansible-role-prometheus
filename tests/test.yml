@@ -1,8 +1,7 @@
 - name: Test prometheus role
   hosts: worker_1
   become: true
-  tasks:
-    - name: Include role from parent dir
-      roles:
-        - role: ../
+  
+  roles:
+    - role: ../
       
