@@ -4,6 +4,6 @@
 - name: Prometheus installig 
   get_url:
     url: https://github.com/prometheus/prometheus/releases/tag/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
-    dest: /tmp/prometheus
+    dest: /tmp/prometheus/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
     mode: '0755'
 
