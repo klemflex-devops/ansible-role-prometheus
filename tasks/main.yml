@@ -7,3 +7,7 @@
     dest: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
     mode: '0755'
 
+- name: Unarchive a file
+  unarchive:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
+    dest: /usr/local/bin/
