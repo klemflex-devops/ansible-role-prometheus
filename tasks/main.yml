@@ -37,6 +37,8 @@
     dest: /usr/local/bin/prometheus
     mode: '0755'
     remote_src: yes
+    owner: prometheus
+    group: prometheus
 
 - name: Copy binary promtool
   copy:
@@ -44,6 +46,8 @@
     dest: /usr/local/bin/promtool
     mode: '0755'
     remote_src: yes
+    owner: prometheus
+    group: prometheus
     
 - name: Copy lib console
   copy:
@@ -51,6 +55,8 @@
     dest: /etc/prometheus/consoles
     mode: '0755'
     remote_src: yes
+    owner: prometheus
+    group: prometheus
 
 - name: Copy lib console
   copy:
@@ -58,3 +64,5 @@
     dest: /etc/prometheus/console_libraries
     mode: '0755'
     remote_src: yes
+    owner: prometheus
+    group: prometheus
