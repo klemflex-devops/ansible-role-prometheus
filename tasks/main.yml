@@ -1,6 +1,24 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for prometheus
+- name: Add user Prometheus
+  user:
+    name: prometheus
+    create_home: false
+    shell: /bin/false
+
+- name: Create work directory
+  file:
+    path: /etc/prometheus
+    owner: prometheus
+    state: directory
+
+- name: Create work directory
+  file:
+    path: /var/lib/prometheus
+    owner: prometheus
+    state: directory
+
 - name: Prometheus installig 
   get_url:
     url: https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
@@ -10,5 +28,25 @@
 - name: Unarchive a file
   unarchive:
     src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
-    dest: /usr/local/bin/
+    dest: /tmp/prometheus-{{ prometheus_version }}.linux-amd64
     remote_src: yes
+
+- name: Copy binary prometheus
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/prometheus
+    dst: /usr/local/bin/prometheus
+
+- name: Copy binary promtool
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/promtool
+    dst: /usr/local/bin/promtool
+    
+- name: Copy lib console
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/consoles
+    dst: /etc/prometheus/consoles
+
+- name: Copy lib console
+  copy:
+    src: /tmp/prometheus-{{ prometheus_version }}.linux-amd64/console_libraries
+    dst: /etc/prometheus/console_libraries
