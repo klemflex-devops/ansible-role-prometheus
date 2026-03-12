@@ -3,7 +3,7 @@
 # tasks file for prometheus
 - name: Prometheus installig 
   get_url:
-    url: https://github.com/prometheus/prometheus/releases/tag/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
+    url: https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
     dest: /tmp/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz
     mode: '0755'
 
