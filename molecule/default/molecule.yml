@@ -12,6 +12,9 @@ platforms:
     command: /lib/systemd/systemd
     cgroupns_mode: host
 
+provisioner:
+  name: ansible
+
 ansible:
   cfg:
     defaults:
