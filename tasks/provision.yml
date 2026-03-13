@@ -11,6 +11,6 @@
 - name: Generate Prometheus node exporter targets
   template:
     src: node_exporter_targets.json.j2
-    dest: /etc/prometheus/file_sd/node_exporter.json
+    dest: /etc/prometheus/node_exporter.json
   notify:
     - Restart prometheus
