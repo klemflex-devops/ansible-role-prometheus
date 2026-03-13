@@ -10,4 +10,5 @@
 
 - name: Provision prometheus
   include_tasks:
-    file: provision.yml
+    file: provision_node_exporter.yml
+  when: provision == node_exporter

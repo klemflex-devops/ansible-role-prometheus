@@ -2,3 +2,4 @@
 ---
 # defaults file for prometheus
 prometheus_version: 3.9.1
+provision: node_exporter
