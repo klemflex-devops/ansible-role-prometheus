@@ -1,3 +1,13 @@
+- name: Check if prometheus installed
+  command: which grafana
+  ignore_errors: true
+  register: prometheus_installed
+
 - name: Install prometheus
   include_tasks:
     file: install.yml
+  when: prometheus_installed.rc == 1
+
+- name: Provision prometheus
+  include_tasks:
+    file: provision.yml

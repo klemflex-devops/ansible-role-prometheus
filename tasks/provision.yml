@@ -1,0 +1,16 @@
+- name: Copy prometheus.yml
+  copy:
+    src: templates/prometheus.yml.j2
+    dest: /etc/prometheus/prometheus.yml
+    mode: '0755'
+    owner: prometheus
+    group: prometheus
+  notify:
+    - Restart prometheus
+
+- name: Generate Prometheus node exporter targets
+  template:
+    src: node_exporter_targets.json.j2
+    dest: /etc/prometheus/file_sd/node_exporter.json
+  notify:
+    - Restart prometheus

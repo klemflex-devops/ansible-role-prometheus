@@ -56,13 +56,16 @@
     mode: '0755'
     owner: prometheus
     group: prometheus
-  notify:
-    - Restart prometheus
 
 - name: Copy prometheus.service
   copy:
     src: templates/prometheus.service.j2
     dest: /etc/systemd/system/prometheus.service
     mode: '0644'
-  notify:
-    - Restart prometheus
+
+- name: Start prometheus.service
+  systemd_service:
+    name: prometheus.service
+    state: started
+    daemon_reload: true
+    enabled: yes
