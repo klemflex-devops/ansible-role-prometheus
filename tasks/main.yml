@@ -1,5 +1,5 @@
 - name: Check if prometheus installed
-  command: which grafana
+  command: which prometheus
   ignore_errors: true
   register: prometheus_installed
 
