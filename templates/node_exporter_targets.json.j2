@@ -2,7 +2,7 @@
   {
     "targets": [
     {% for host in groups['all'] %}
-      "{{ hostvars[host]['ansible_host'] }}:9100"{% if not loop.last %},{% endif %}
+      "{{ hostvars[host]['ansible_host'] | default(host) }}:9100"{% if not loop.last %},{% endif %}
     {% endfor %}
     ],
     "labels": {
