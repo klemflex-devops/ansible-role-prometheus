@@ -18,12 +18,5 @@
   # commands. Most molecule users are expected to use containers that already
   # have python installed in order to avoid notable delays installing it.
   gather_facts: false
-  tasks:
-    - name: Check uname
-      ansible.builtin.raw: uname -a
-      register: result
-      changed_when: false
-
-    - name: Print some info
-      ansible.builtin.assert:
-        that: result.stdout is ansible.builtin.search("^Linux")
+  roles:
+    - ansible-role-prometheus
