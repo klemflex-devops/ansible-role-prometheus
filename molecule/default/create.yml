@@ -11,10 +11,8 @@
       community.docker.docker_container:
         name: "{{ item.name }}"
         image: "{{ item.image }}"
-        cgroupns_mode: "host"
         state: started
-        privileged: true
-        #command: sleep 1d
+        command: ""
         log_driver: json-file
       register: result
       loop: "{{ molecule_yml.platforms }}"
