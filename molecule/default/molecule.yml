@@ -1,52 +1,8 @@
----
 dependency:
   name: galaxy
-
-driver:
-  name: docker
-
+  options:
+    requirements-file: requirements.yml
 platforms:
-  - name: instance
-    image: geerlingguy/docker-ubuntu2204-ansible
-    privileged: true
-
-provisioner:
-  name: ansible
-  config_options:
-    defaults:
-      remote_tmp: /tmp/.ansible/tmp
-# ansible:
-#   cfg:
-#     defaults:
-#       host_key_checking: false
-#       verbosity: 1
-#     ssh_connection:
-#       pipelining: true
-#   env:
-#     ANSIBLE_FORCE_COLOR: "1"
-#     ANSIBLE_LOAD_CALLBACK_PLUGINS: "1"
-#   executor:
-#     backend: ansible-playbook
-#     args:
-#       ansible_playbook:
-#         - --diff
-#         - --force-handlers
-#   playbooks:
-#     converge: converge.yml
-#     verify: verify.yml
-
-scenario:
-  name: default
-  test_sequence:
-    - dependency
-    - cleanup
-    - destroy
-    - syntax
-    - create
-    - prepare
-    - converge
-    - idempotence
-    - side_effect
-    - verify
-    - cleanup
-    - destroy
+  - name: molecule-ubuntu
+    image: glillico/docker-ubuntu2404-ansible:latest
+    
