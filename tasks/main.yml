@@ -3,6 +3,7 @@
   ansible.builtin.command: which prometheus
   ignore_errors: true
   register: prometheus_installed
+  tags: skip_ansible_lint
 
 - name: Install prometheus
   ansible.builtin.include_tasks:

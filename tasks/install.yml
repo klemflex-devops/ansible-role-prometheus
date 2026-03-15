@@ -12,12 +12,14 @@
     path: /etc/prometheus
     owner: prometheus
     state: directory
+    mode: "0755"
 
 - name: Create work directory
   ansible.builtin.file:
     path: /var/lib/prometheus
     owner: prometheus
     state: directory
+    mode: "0755"
 
 - name: Prometheus installig
   ansible.builtin.get_url:
