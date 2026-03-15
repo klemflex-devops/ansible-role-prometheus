@@ -11,8 +11,6 @@
       community.docker.docker_container:
         name: "{{ item.name }}"
         image: "{{ item.image }}"
-        ports:
-          - 9090:9090
         state: started
         tmpfs:
           - /run
