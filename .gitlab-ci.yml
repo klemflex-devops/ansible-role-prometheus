@@ -7,11 +7,6 @@ stages:
 
 ansible_lint:
   stage: lint
-  before_script:
-    - python3 -m venv .venv
-    - . .venv/bin/activate
-    - pip install --upgrade pip
-    - pip install ansible ansible-lint
   script:
-    - . .venv/bin/activate
+    - export PATH="$HOME/.local/bin:$PATH"
     - ansible-lint .
