@@ -3,11 +3,22 @@ image:
 
 before_script:
   - pip3 install ansible-lint
+  - pip3 install molecule
 
 stages:
   - lint
+  - test
 
-test_job:
+lint_job:
   stage: lint
+  before_script:
+  - pip3 install ansible-lint
   script:
     - ansible-lint .
+
+test_job:
+  stage: test
+  before_script:
+    - pip3 install molecule
+  script:
+    - molecule converge
