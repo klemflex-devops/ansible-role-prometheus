@@ -1,6 +1,6 @@
 default:
   tags:
-    - local
+    - docker-systemd
 
 image:
   name: trfore/docker-ubuntu2404-systemd
