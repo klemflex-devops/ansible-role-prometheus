@@ -19,6 +19,9 @@ lint_job:
 test_job:
   stage: test
   before_script:
+    - apt-get update
+    - apt-get install -y python3-pip python3-requests
+    - pip3 install docker
     - pip3 install molecule
   script:
     - molecule converge
