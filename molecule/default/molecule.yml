@@ -1,3 +1,4 @@
+---
 dependency:
   name: galaxy
   options:
@@ -5,4 +6,3 @@ dependency:
 platforms:
   - name: molecule-ubuntu
     image: trfore/docker-ubuntu2404-systemd
-    

@@ -1,15 +1,16 @@
+---
 - name: Copy prometheus.yml
-  copy:
+  ansible.builtin.copy:
     src: templates/prometheus.yml.j2
     dest: /etc/prometheus/prometheus.yml
-    mode: '0755'
+    mode: "0755"
     owner: prometheus
     group: prometheus
   notify:
     - Restart prometheus
 
 - name: Generate Prometheus node exporter targets
-  template:
+  ansible.builtin.template:
     src: node_exporter_targets.json.j2
     dest: /etc/prometheus/node_exporter.json
   notify:
