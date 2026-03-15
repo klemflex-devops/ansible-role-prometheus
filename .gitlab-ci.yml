@@ -1,5 +1,6 @@
 image:
-  - glillico/docker-ubuntu2404-ansible:latest
+  name:
+    - glillico/docker-ubuntu2404-ansible:latest
 
 before_script:
   - pip3 install ansible-lint
