@@ -10,4 +10,4 @@ stages:
 test_job:
   stage: lint
   script:
-    - ansible-lint *.yml
+    - ansible-lint .
