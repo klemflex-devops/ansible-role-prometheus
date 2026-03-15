@@ -1,5 +1,5 @@
 image:
-  - trfore/docker-ubuntu2404-systemd
+  name: trfore/docker-ubuntu2404-systemd
 
 stages:
   - lint
