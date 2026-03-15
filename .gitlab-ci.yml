@@ -2,9 +2,6 @@ default:
   tags:
     - linux-ansible
 
-image:
-  name: trfore/docker-ubuntu2404-systemd
-
 stages:
   - lint
 
