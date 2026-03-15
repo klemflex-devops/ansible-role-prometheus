@@ -1,5 +1,5 @@
 image:
-  name: python:3.12-slim
+  - trfore/docker-ubuntu2404-systemd
 
 stages:
   - lint
@@ -9,4 +9,5 @@ lint_job:
   before_script:
   - pip3 install ansible-lint
   script:
+    - which systemd
     - ansible-lint .
