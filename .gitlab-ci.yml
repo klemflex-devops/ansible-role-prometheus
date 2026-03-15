@@ -1,6 +1,6 @@
 default:
   tags:
-    - docker-systemd
+    - linux-ansible
 
 image:
   name: trfore/docker-ubuntu2404-systemd
@@ -10,8 +10,5 @@ stages:
 
 lint_job:
   stage: lint
-  before_script:
-    - pip3 install ansible-lint
   script:
-    - which systemd
     - ansible-lint .
